@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="বাংলা ভাষা, গণিত ও সাধারণ জ্ঞান শেখার সম্পূর্ণ সমাধান। বাংলা ব্যাকরণ, বাগধারা, সমাস, সন্ধি এবং আরও অনেক কিছু।">
+    <meta name="keywords" content="বাংলা শেখা, বাংলা ব্যাকরণ, গণিত, সাধারণ জ্ঞান, বাংলা বাগধারা, সমাস, সন্ধি">
+    <title>বাংলা শিক্ষা - বাংলা ভাষা ও গণিতের সম্পূর্ণ গাইড</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Font imports for SolaimanLipi and other Bengali support */
+        @import url('https://fonts.googleapis.com/css2?family=SolaimanLipi&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #1a5e20;
+            --secondary-color: #388e3c;
+            --accent-color: #8bc34a;
+            --light-color: #f1f8e9;
+            --dark-color: #0d3011;
+            --text-color: #212121;
+            --text-light: #757575;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SolaimanLipi', 'Hind Siliguri', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.1;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="white" d="M30,30 L70,30 L70,70 L30,70 Z" opacity="0.1"/></svg>');
+            background-size: 50px 50px;
+            animation: patternMove 60s linear infinite;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .search-container {
+            margin: 2.5rem auto;
+            max-width: 700px;
+            position: relative;
+        }
+        
+        #search-box {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: rgba(255,255,255,0.9);
+        }
+        
+        #search-box:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(26, 94, 32, 0.2);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+        
+        .search-results {
+            margin-top: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        .search-result-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .search-result-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .search-category {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            position: relative;
+            transform: translateY(0);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            z-index: 2;
+        }
+        
+        .category-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(26,94,32,0.7), rgba(139,195,74,0.5));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .category-card:hover .category-image::after {
+            opacity: 1;
+        }
+        
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            z-index: 1;
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .category-desc {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .category-content {
+            padding: 1.5rem;
+        }
+        
+        .topics {
+            list-style: none;
+        }
+        
+        .topic-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .topic-item:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .topic-item:last-child {
+            border-bottom: none;
+        }
+        
+        .topic-item::before {
+            content: '→';
+            color: var(--accent-color);
+            margin-right: 0.8rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .topic-item:hover::before {
+            transform: translateX(5px);
+            color: var(--primary-color);
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 15s infinite linear;
+        }
+        
+        .shape.circle {
+            border-radius: 50%;
+            background: white;
+        }
+        
+        .shape.triangle {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid white;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, var(--dark-color), var(--primary-color));
+            color: white;
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+            gap: 1.5rem;
+        }
+        
+        .footer-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .footer-link:hover {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            text-decoration: none;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background: white;
+            margin: 2rem auto;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            padding: 1.8rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .close-modal {
+            background: rgba(0,0,0,0.2);
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .close-modal:hover {
+            background: rgba(0,0,0,0.4);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .content-section {
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .content-section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            border-radius: 4px;
+        }
+        
+        .content-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--light-color);
+            font-size: 1.5rem;
+            position: relative;
+        }
+        
+        .content-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+        
+        .example-box {
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .example-box::before {
+            content: 'উদাহরণ';
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            border-bottom-left-radius: 10px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+        
+        @keyframes patternMove {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100px 100px;
+            }
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Loading animation */
+        .loader {
+            display: none;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .loader-circle {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 5px;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        
+        .loader-circle:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+        
+        .loader-circle:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+        
+        @keyframes bounce {
+            0%, 80%, 100% { 
+                transform: scale(0);
+            } 40% { 
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .categories {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .modal-content {
+                margin: 1.5rem;
+                width: calc(100% - 3rem);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-body {
+                padding: 1.5rem;
+            }
+            
+            .content-section {
+                padding-left: 1rem;
+            }
+        }
+        
+        /* Floating action button */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .fab:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+        
+        .fab i {
+            font-size: 1.5rem;
+        }
+        
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: var(--dark-color);
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8rem;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-animation"></div>
+        <div class="floating-shapes">
+            <div class="shape circle" style="width: 30px; height: 30px; top: 20%; left: 10%;"></div>
+            <div class="shape triangle" style="top: 70%; left: 15%;"></div>
+            <div class="shape circle" style="width: 20px; height: 20px; top: 40%; left: 80%;"></div>
+            <div class="shape triangle" style="top: 20%; left: 85%;"></div>
+            <div class="shape circle" style="width: 25px; height: 25px; top: 80%; left: 70%;"></div>
+        </div>
+        <div class="header-content container">
+            <h1 class="animate__animated animate__fadeInDown">বাংলা শিক্ষা</h1>
+            <p class="tagline animate__animated animate__fadeInUp animate__delay-1s">বাংলা ভাষা, গণিত ও সাধারণ জ্ঞানের সম্পূর্ণ সমাধান</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="search-container animate__animated animate__fadeIn animate__delay-1s">
+            <input type="text" id="search-box" placeholder="আপনি কি জানতে চান? (বাংলা ব্যাকরণ, গণিত, সাধারণ জ্ঞান...)">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="loader" id="search-loader">
+                <div class="loader-circle"></div>
+                <div class="loader-circle"></div>
+                <div class="loader-circle"></div>
+            </div>
+            <div class="search-results" id="search-results"></div>
+        </div>
+        
+        <div class="categories">
+            <!-- বাংলা ব্যাকরণ -->
+            <div class="category-card animate__animated animate__fadeInUp" onclick="openModal('bangla-bakoron')" style="animation-delay: 0.2s;">
+                <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');">
+                    <div class="category-overlay">
+                        <h2 class="category-title">বাংলা ব্যাকরণ</h2>
+                        <p class="category-desc">বাংলা ভাষার সম্পূর্ণ ব্যাকরণিক নিয়ম</p>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <ul class="topics">
+                        <li class="topic-item">বাগধারা</li>
+                        <li class="topic-item">এক কথায় প্রকাশ</li>
+                        <li class="topic-item">সমাস</li>
+                        <li class="topic-item">করক ও বিভক্তি</li>
+                        <li class="topic-item">সন্ধি</li>
+                        <li class="topic-item">বিপরীত শব্দ</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- সাধারণ জ্ঞান -->
+            <div class="category-card animate__animated animate__fadeInUp" onclick="openModal('general-knowledge')" style="animation-delay: 0.4s;">
+                <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');">
+                    <div class="category-overlay">
+                        <h2 class="category-title">সাধারণ জ্ঞান</h2>
+                        <p class="category-desc">বাংলাদেশ ও আন্তর্জাতিক বিষয়াবলী</p>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <ul class="topics">
+                        <li class="topic-item">প্রাচীন বাংলা</li>
+                        <li class="topic-item">বাংলাদেশের ইতিহাস</li>
+                        <li class="topic-item">আন্তর্জাতিক তথ্য</li>
+                        <li class="topic-item">জুলাই অভ্যুত্থান</li>
+                        <li class="topic-item">সমসাময়ীক তথ্য</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- গণিত -->
+            <div class="category-card animate__animated animate__fadeInUp" onclick="openModal('mathematics')" style="animation-delay: 0.6s;">
+                <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');">
+                    <div class="category-overlay">
+                        <h2 class="category-title">গণিত</h2>
+                        <p class="category-desc">অষ্টম ও দশম শ্রেণির গণিতের সম্পূর্ণ সমাধান</p>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <ul class="topics">
+                        <li class="topic-item">বীজগণিত</li>
+                        <li class="topic-item">জ্যামিতি</li>
+                        <li class="topic-item">ত্রিকোণমিতি</li>
+                        <li class="topic-item">পাটিগণিত</li>
+                        <li class="topic-item">পরিমিতি</li>
+                        <li class="topic-item">সেট ও ফাংশন</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- ইংরেজি -->
+            <div class="category-card animate__animated animate__fadeInUp" onclick="openModal('english')" style="animation-delay: 0.8s;">
+                <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');">
+                    <div class="category-overlay">
+                        <h2 class="category-title">ইংরেজি</h2>
+                        <p class="category-desc">ইংরেজি ভাষা ও ব্যাকরণের সম্পূর্ণ গাইড</p>
+                    </div>
+                </div>
+                <div class="category-content">
+                    <ul class="topics">
+                        <li class="topic-item">ইংরেজি ব্যাকরণ</li>
+                        <li class="topic-item">শব্দভাণ্ডার</li>
+                        <li class="topic-item">বাক্য গঠন</li>
+                        <li class="topic-item">অনুবাদ</li>
+                        <li class="topic-item">রচনা লেখা</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-section animate__animated animate__fadeIn">
+            <div class="floating-shapes">
+                <div class="shape circle" style="width: 40px; height: 40px; top: 20%; left: 5%;"></div>
+                <div class="shape triangle" style="top: 60%; left: 10%;"></div>
+                <div class="shape circle" style="width: 30px; height: 30px; top: 30%; left: 90%;"></div>
+                <div class="shape triangle" style="top: 70%; left: 85%;"></div>
+            </div>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" id="students-count">5000+</div>
+                    <div class="stat-label">শিক্ষার্থী</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="topics-count">120+</div>
+                    <div class="stat-label">বিষয়</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="examples-count">1000+</div>
+                    <div class="stat-label">উদাহরণ</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="resources-count">50+</div>
+                    <div class="stat-label">শিক্ষা উপকরণ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="floating-shapes">
+            <div class="shape circle" style="width: 25px; height: 25px; top: 20%; left: 10%;"></div>
+            <div class="shape triangle" style="top: 70%; left: 15%;"></div>
+            <div class="shape circle" style="width: 20px; height: 20px; top: 30%; left: 80%;"></div>
+        </div>
+        <div class="footer-content container">
+            <div class="footer-logo">বাংলা শিক্ষা</div>
+            <p>বাংলা ভাষা ও গণিতের সম্পূর্ণ গাইড</p>
+            
+            <div class="footer-links">
+                <a href="#" class="footer-link">প্রাইভেসি পলিসি</a>
+                <a href="#" class="footer-link">যোগাযোগ</a>
+                <a href="#" class="footer-link">আমাদের সম্পর্কে</a>
+                <a href="#" class="footer-link">শর্তাবলী</a>
+                <a href="#" class="footer-link">সাহায্য</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link tooltip">
+                    <i class="fab fa-facebook-f"></i>
+                    <span class="tooltiptext">Facebook</span>
+                </a>
+                <a href="#" class="social-link tooltip">
+                    <i class="fab fa-youtube"></i>
+                    <span class="tooltiptext">YouTube</span>
+                </a>
+                <a href="#" class="social-link tooltip">
+                    <i class="fab fa-twitter"></i>
+                    <span class="tooltiptext">Twitter</span>
+                </a>
+                <a href="#" class="social-link tooltip">
+                    <i class="fab fa-instagram"></i>
+                    <span class="tooltiptext">Instagram</span>
+                </a>
+            </div>
+            
+            <p class="copyright">© 2023 বাংলা শিক্ষা - সকল অধিকার সংরক্ষিত</p>
+        </div>
+    </footer>
+    
+    <!-- Floating action button -->
+    <div class="fab tooltip" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+        <span class="tooltiptext">শীর্ষে যান</span>
+    </div>
+    
+    <!-- Modals for each category -->
+    <div class="modal" id="bangla-bakoron-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">বাংলা ব্যাকরণ</h2>
+                <button class="close-modal" onclick="closeModal('bangla-bakoron-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="content-section">
+                    <h3>বাগধারা</h3>
+                    <p>বাগধারা হলো এমন বাক্যাংশ যা বিশেষ অর্থ প্রকাশ করে এবং আক্ষরিক অর্থের চেয়ে ভিন্ন অর্থ বহন করে।</p>
+                    
+                    <div class="example-box">
+                        <p><strong>১. অন্ধের যষ্টি:</strong> একমাত্র অবলম্বন।</p>
+                        <p>উদাহরণ: "এই চাকরিটাই তার অন্ধের যষ্টি স্বরূপ।"</p>
+                        
+                        <p><strong>২. আকাশ-পাতাল তফাৎ:</strong> অত্যন্ত বেশি পার্থক্য।</p>
+                        <p>উদাহরণ: "তাদের দুজনের চিন্তাধারায় আকাশ-পাতাল তফাৎ।"</p>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>এক কথায় প্রকাশ</h3>
+                    <p>একাধিক শব্দে প্রকাশিত ভাব বা অর্থ একটি শব্দে প্রকাশ করাকে এক কথায় প্রকাশ বলে।</p>
+                    
+                    <div class="example-box">
+                        <p><strong>যে কাউকে বিশ্বাস করে:</strong> সহজ বিশ্বাসী</p>
+                        <p><strong>যে বিদেশে বাস করে:</strong> প্রবাসী</p>
+                        <p><strong>যে কথা বলে না:</strong> মূক</p>
+                        <p><strong>যে সব জায়গায় যায়:</strong> সর্বত্রগামী</p>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h3>সমাস</h3>
+                    <p>দুই বা ততোধিক পদের একটি পদে পরিণত হওয়াকে সমাস বলে।</p>
+                    
+                    <div class="example-box">
+                        <p><strong>১. তৎপুরুষ সমাস:</strong> পূর্বপদ কর্ম বা অব্যয় হয়।</p>
+                        <p>উদাহরণ: "ধনহীন" (ধন দ্বারা হীন), "গৃহাগত" (গৃহে আগত)</p>
+                        
+                        <p><strong>২. কর্মধারয় সমাস:</strong> বিশেষ্য ও বিশেষণ পদের
+                    <p><strong>৩. দ্বন্দ্ব সমাস:</strong> সমান গুরুত্বপূর্ণ পদ যুক্ত হয়।</p>
+                    <p>উদাহরণ: "মাতাপিতা" (মাতা ও পিতা), "লাউকুমড়া" (লাউ ও কুমড়া)</p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h3>সন্ধি</h3>
+                <p>দুটি ধ্বনির মিলনকে সন্ধি বলে। বাংলা সন্ধি প্রধানত দুই প্রকার: স্বরসন্ধি ও ব্যঞ্জনসন্ধি।</p>
+                
+                <div class="example-box">
+                    <p><strong>১. স্বরসন্ধি:</strong> স্বরধ্বনির মিলন</p>
+                    <p>উদাহরণ: "বিদ্যা + আলয় = বিদ্যালয়", "মহা + ঈশ্বর = মহেশ্বর"</p>
+                    
+                    <p><strong>২. ব্যঞ্জনসন্ধি:</strong> ব্যঞ্জনধ্বনির মিলন</p>
+                    <p>উদাহরণ: "তদ্ + নাম = তন্নাম", "বাক্ + ময় = বাঙ্ময়"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="general-knowledge-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">সাধারণ জ্ঞান</h2>
+            <button class="close-modal" onclick="closeModal('general-knowledge-modal')">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="content-section">
+                <h3>বাংলাদেশের ইতিহাস</h3>
+                <p>বাংলাদেশের গুরুত্বপূর্ণ ঐতিহাসিক ঘটনাবলী:</p>
+                
+                <div class="example-box">
+                    <p><strong>১৯৫২:</strong> ভাষা আন্দোলন (২১শে ফেব্রুয়ারি)</p>
+                    <p><strong>১৯৭১:</strong> স্বাধীনতা যুদ্ধ (২৬শে মার্চ - ১৬ই ডিসেম্বর)</p>
+                    <p><strong>১৯৭২:</strong> সংবিধান প্রণয়ন (৪ঠা নভেম্বর)</p>
+                    <p><strong>১৯৯১:</strong> প্রথম তত্ত্বাবধায়ক সরকার গঠন</p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h3>বাংলাদেশের ভৌগোলিক তথ্য</h3>
+                <p>বাংলাদেশের গুরুত্বপূর্ণ ভৌগোলিক বৈশিষ্ট্য:</p>
+                
+                <div class="example-box">
+                    <p><strong>আয়তন:</strong> ১,৪৭,৫৭০ বর্গকিলোমিটার</p>
+                    <p><strong>নদী:</strong> ৭০০+ (প্রধান নদী: পদ্মা, মেঘনা, যমুনা)</p>
+                    <p><strong>সীমানা:</strong> ভারত (পশ্চিম, উত্তর, পূর্ব), মায়ানমার (দক্ষিণ-পূর্ব)</p>
+                    <p><strong>জলবায়ু:</strong> উপক্রান্তীয় মৌসুমী</p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h3>আন্তর্জাতিক সংস্থা</h3>
+                <p>গুরুত্বপূর্ণ আন্তর্জাতিক সংস্থা ও তাদের সদর দপ্তর:</p>
+                
+                <div class="example-box">
+                    <p><strong>জাতিসংঘ (UN):</strong> নিউ ইয়র্ক, যুক্তরাষ্ট্র</p>
+                    <p><strong>বিশ্ব ব্যাংক:</strong> ওয়াশিংটন ডি.সি., যুক্তরাষ্ট্র</p>
+                    <p><strong>ইউনেস্কো:</strong> প্যারিস, ফ্রান্স</p>
+                    <p><strong>আইএমএফ:</strong> ওয়াশিংটন ডি.সি., যুক্তরাষ্ট্র</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="mathematics-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">গণিত</h2>
+            <button class="close-modal" onclick="closeModal('mathematics-modal')">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="content-section">
+                <h3>বীজগণিত</h3>
+                <p>বীজগণিতের মৌলিক সূত্রাবলী:</p>
+                
+                <div class="example-box">
+                    <p><strong>(a + b)² = a² + 2ab + b²</strong></p>
+                    <p><strong>(a - b)² = a² - 2ab + b²</strong></p>
+                    <p><strong>a² - b² = (a + b)(a - b)</strong></p>
+                    <p><strong>(a + b)³ = a³ + 3a²b + 3ab² + b³</strong></p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h3>জ্যামিতি</h3>
+                <p>গুরুত্বপূর্ণ জ্যামিতিক সূত্র:</p>
+                
+                <div class="example-box">
+                    <p><strong>আয়তক্ষেত্র:</strong> ক্ষেত্রফল = দৈর্ঘ্য × প্রস্থ</p>
+                    <p><strong>বর্গক্ষেত্র:</strong> ক্ষেত্রফল = বাহু × বাহু</p>
+                    <p><strong>ত্রিভুজ:</strong> ক্ষেত্রফল = ½ × ভূমি × উচ্চতা</p>
+                    <p><strong>বৃত্ত:</strong> ক্ষেত্রফল = πr², পরিধি = 2πr</p>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h3>ত্রিকোণমিতি</h3>
+                <p>মৌলিক ত্রিকোণমিতিক অনুপাত:</p>
+                
+                <div class="example-box">
+                    <p><strong>sinθ = লম্ব / অতিভুজ</strong></p>
+                    <p><strong>cosθ = ভূমি / অতিভুজ</strong></p>
+                    <p><strong>tanθ = লম্ব / ভূমি</strong></p>
+                    <p><strong>cotθ = ভূমি / লম্ব</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Search functionality
+    document.getElementById('search-box').addEventListener('input', function(e) {
+        const query = e.target.value.trim();
+        const loader = document.getElementById('search-loader');
+        const resultsContainer = document.getElementById('search-results');
+        
+        if (query.length < 3) {
+            resultsContainer.style.display = 'none';
+            return;
+        }
+        
+        loader.style.display = 'block';
+        resultsContainer.style.display = 'none';
+        
+        // Simulate API call delay
+        setTimeout(() => {
+            const mockResults = getMockSearchResults(query);
+            displaySearchResults(mockResults);
+            loader.style.display = 'none';
+            resultsContainer.style.display = 'block';
+        }, 800);
+    });
+    
+    function getMockSearchResults(query) {
+        // This is a mock function - in a real app, you would call an API
+        const allResults = [
+            {
+                title: "বাগধারা",
+                content: "বাগধারা হলো বিশেষ অর্থবোধক বাক্যাংশ যা আক্ষরিক অর্থের চেয়ে ভিন্ন অর্থ প্রকাশ করে।",
+                category: "বাংলা ব্যাকরণ"
+            },
+            {
+                title: "সমাস",
+                content: "দুই বা ততোধিক পদের একপদে পরিণত হওয়াকে সমাস বলে। যেমন: 'বিদ্যাবুদ্ধি' (বিদ্যা ও বুদ্ধি)।",
+                category: "বাংলা ব্যাকরণ"
+            },
+            {
+                title: "বীজগণিতের সূত্র",
+                content: "(a + b)² = a² + 2ab + b² - এটি বীজগণিতের একটি মৌলিক সূত্র।",
+                category: "গণিত"
+            },
+            {
+                title: "১৯৭১ সালের মুক্তিযুদ্ধ",
+                content: "বাংলাদেশের স্বাধীনতা যুদ্ধ ১৯৭১ সালের ২৬ মার্চ শুরু হয়ে ১৬ ডিসেম্বর শেষ হয়।",
+                category: "সাধারণ জ্ঞান"
+            }
+        ];
+        
+        return allResults.filter(item => 
+            item.title.includes(query) || 
+            item.content.includes(query) ||
+            item.category.includes(query)
+        );
+    }
+    
+    function displaySearchResults(results) {
+        const container = document.getElementById('search-results');
+        
+        if (results.length === 0) {
+            container.innerHTML = '<p>কোন ফলাফল পাওয়া যায়নি। অনুগ্রহ করে অন্য কিছু খুঁজুন।</p>';
+            return;
+        }
+        
+        let html = '';
+        results.forEach(result => {
+            html += `
+                <div class="search-result-item">
+                    <div class="search-category">${result.category}</div>
+                    <h4>${result.title}</h4>
+                    <p>${result.content}</p>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+    }
+    
+    // Modal functionality
+    function openModal(modalId) {
+        document.getElementById(`${modalId}-modal`).style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') {
+            event.target.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+    
+    // Scroll to top
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    
+    // Animate stats counters
+    function animateCounters() {
+        const students = document.getElementById('students-count');
+        const topics = document.getElementById('topics-count');
+        const examples = document.getElementById('examples-count');
+        const resources = document.getElementById('resources-count');
+        
+        animateValue(students, 0, 5000, 2000);
+        animateValue(topics, 0, 120, 1500);
+        animateValue(examples, 0, 1000, 2500);
+        animateValue(resources, 0, 50, 1000);
+    }
+    
+    function animateValue(element, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            element.innerHTML = Math.floor(progress * (end - start) + start) + (element === document.getElementById('students-count') || 
+                element === document.getElementById('examples-count') ? '+' : '');
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+    
+    // Initialize animations when page loads
+    window.onload = function() {
+        animateCounters();
+        
+        // Add animation to elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.category-card, .stat-item').forEach(card => {
+            observer.observe(card);
+        });
+    };
+</script>
